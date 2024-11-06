@@ -1,0 +1,293 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="user279_dbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Auto_ДолжностьСотрудника">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Auto_Сотрудники" Relationship="Self.FK_Auto_Сотрудники_Auto_ДолжностьСотрудника" FromRole="Auto_ДолжностьСотрудника" ToRole="Auto_Сотрудники" />
+  </EntityType>
+  <EntityType Name="Auto_Заказ">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="id_uslugi" Type="Int32" />
+    <Property Name="date_order" Type="DateTime" Precision="0" />
+    <Property Name="id_status" Type="Int32" />
+    <Property Name="comment" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="id_worker" Type="Int32" />
+    <Property Name="id_car" Type="Int32" />
+    <NavigationProperty Name="Auto_Машина" Relationship="Self.FK_Auto_Заказ_Auto_Машина" FromRole="Auto_Заказ" ToRole="Auto_Машина" />
+    <NavigationProperty Name="Auto_Сотрудники" Relationship="Self.FK_Auto_Заказ_Auto_Сотрудники" FromRole="Auto_Заказ" ToRole="Auto_Сотрудники" />
+    <NavigationProperty Name="Auto_СтатусЗаказа" Relationship="Self.FK_Auto_Заказ_Auto_СтатусЗаказа" FromRole="Auto_Заказ" ToRole="Auto_СтатусЗаказа" />
+    <NavigationProperty Name="Auto_Услуги" Relationship="Self.FK_Auto_Заказ_Auto_Услуги" FromRole="Auto_Заказ" ToRole="Auto_Услуги" />
+  </EntityType>
+  <EntityType Name="Auto_Клиент">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="surname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="number" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="login" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="id_role" Type="Int32" />
+    <NavigationProperty Name="Auto_Роль" Relationship="Self.FK_Auto_Клиент_Auto_Роль" FromRole="Auto_Клиент" ToRole="Auto_Роль" />
+    <NavigationProperty Name="Auto_Машина" Relationship="Self.FK_Auto_Машина_Auto_Клиент" FromRole="Auto_Клиент" ToRole="Auto_Машина" />
+  </EntityType>
+  <EntityType Name="Auto_Материал">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="kolvo_sklad" Type="Int32" />
+    <NavigationProperty Name="Auto_УслугиМатериалы" Relationship="Self.FK_Auto_УслугиМатериалы_Auto_Материал" FromRole="Auto_Материал" ToRole="Auto_УслугиМатериалы" />
+  </EntityType>
+  <EntityType Name="Auto_Машина">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="id_client" Type="Int32" />
+    <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="model" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="date_of_issue" Type="DateTime" Precision="0" />
+    <Property Name="VIN" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Auto_Заказ" Relationship="Self.FK_Auto_Заказ_Auto_Машина" FromRole="Auto_Машина" ToRole="Auto_Заказ" />
+    <NavigationProperty Name="Auto_Клиент" Relationship="Self.FK_Auto_Машина_Auto_Клиент" FromRole="Auto_Машина" ToRole="Auto_Клиент" />
+  </EntityType>
+  <EntityType Name="Auto_Роль">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="id_worker" Type="Int32" />
+    <NavigationProperty Name="Auto_Клиент" Relationship="Self.FK_Auto_Клиент_Auto_Роль" FromRole="Auto_Роль" ToRole="Auto_Клиент" />
+    <NavigationProperty Name="Auto_Сотрудники" Relationship="Self.FK_Auto_Роль_Auto_Сотрудники" FromRole="Auto_Роль" ToRole="Auto_Сотрудники" />
+  </EntityType>
+  <EntityType Name="Auto_Сотрудники">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="surname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="id_dlzhnst" Type="Int32" />
+    <Property Name="number" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="login" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Auto_ДолжностьСотрудника" Relationship="Self.FK_Auto_Сотрудники_Auto_ДолжностьСотрудника" FromRole="Auto_Сотрудники" ToRole="Auto_ДолжностьСотрудника" />
+    <NavigationProperty Name="Auto_Заказ" Relationship="Self.FK_Auto_Заказ_Auto_Сотрудники" FromRole="Auto_Сотрудники" ToRole="Auto_Заказ" />
+    <NavigationProperty Name="Auto_Роль" Relationship="Self.FK_Auto_Роль_Auto_Сотрудники" FromRole="Auto_Сотрудники" ToRole="Auto_Роль" />
+  </EntityType>
+  <EntityType Name="Auto_СтатусЗаказа">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="status" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Auto_Заказ" Relationship="Self.FK_Auto_Заказ_Auto_СтатусЗаказа" FromRole="Auto_СтатусЗаказа" ToRole="Auto_Заказ" />
+  </EntityType>
+  <EntityType Name="Auto_Услуги">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="description" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="price" Type="Int32" />
+    <Property Name="execution_time" Type="Int32" />
+    <NavigationProperty Name="Auto_Заказ" Relationship="Self.FK_Auto_Заказ_Auto_Услуги" FromRole="Auto_Услуги" ToRole="Auto_Заказ" />
+    <NavigationProperty Name="Auto_УслугиМатериалы" Relationship="Self.FK_Auto_УслугиМатериалы_Auto_Услуги" FromRole="Auto_Услуги" ToRole="Auto_УслугиМатериалы" />
+  </EntityType>
+  <EntityType Name="Auto_УслугиМатериалы">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="id_material" Type="Int32" />
+    <Property Name="id_uslugi" Type="Int32" />
+    <Property Name="kolvo_zakaz" Type="Int32" />
+    <NavigationProperty Name="Auto_Материал" Relationship="Self.FK_Auto_УслугиМатериалы_Auto_Материал" FromRole="Auto_УслугиМатериалы" ToRole="Auto_Материал" />
+    <NavigationProperty Name="Auto_Услуги" Relationship="Self.FK_Auto_УслугиМатериалы_Auto_Услуги" FromRole="Auto_УслугиМатериалы" ToRole="Auto_Услуги" />
+  </EntityType>
+  <Association Name="FK_Auto_Сотрудники_Auto_ДолжностьСотрудника">
+    <End Role="Auto_ДолжностьСотрудника" Type="Self.Auto_ДолжностьСотрудника" Multiplicity="0..1" />
+    <End Role="Auto_Сотрудники" Type="Self.Auto_Сотрудники" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Auto_ДолжностьСотрудника">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Auto_Сотрудники">
+        <PropertyRef Name="id_dlzhnst" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Auto_Заказ_Auto_Машина">
+    <End Role="Auto_Машина" Type="Self.Auto_Машина" Multiplicity="0..1" />
+    <End Role="Auto_Заказ" Type="Self.Auto_Заказ" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Auto_Машина">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Auto_Заказ">
+        <PropertyRef Name="id_car" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Auto_Заказ_Auto_Сотрудники">
+    <End Role="Auto_Сотрудники" Type="Self.Auto_Сотрудники" Multiplicity="0..1" />
+    <End Role="Auto_Заказ" Type="Self.Auto_Заказ" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Auto_Сотрудники">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Auto_Заказ">
+        <PropertyRef Name="id_worker" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Auto_Заказ_Auto_СтатусЗаказа">
+    <End Role="Auto_СтатусЗаказа" Type="Self.Auto_СтатусЗаказа" Multiplicity="0..1" />
+    <End Role="Auto_Заказ" Type="Self.Auto_Заказ" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Auto_СтатусЗаказа">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Auto_Заказ">
+        <PropertyRef Name="id_status" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Auto_Заказ_Auto_Услуги">
+    <End Role="Auto_Услуги" Type="Self.Auto_Услуги" Multiplicity="0..1" />
+    <End Role="Auto_Заказ" Type="Self.Auto_Заказ" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Auto_Услуги">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Auto_Заказ">
+        <PropertyRef Name="id_uslugi" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Auto_Клиент_Auto_Роль">
+    <End Role="Auto_Роль" Type="Self.Auto_Роль" Multiplicity="0..1" />
+    <End Role="Auto_Клиент" Type="Self.Auto_Клиент" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Auto_Роль">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Auto_Клиент">
+        <PropertyRef Name="id_role" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Auto_Машина_Auto_Клиент">
+    <End Role="Auto_Клиент" Type="Self.Auto_Клиент" Multiplicity="0..1" />
+    <End Role="Auto_Машина" Type="Self.Auto_Машина" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Auto_Клиент">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Auto_Машина">
+        <PropertyRef Name="id_client" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Auto_УслугиМатериалы_Auto_Материал">
+    <End Role="Auto_Материал" Type="Self.Auto_Материал" Multiplicity="0..1" />
+    <End Role="Auto_УслугиМатериалы" Type="Self.Auto_УслугиМатериалы" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Auto_Материал">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Auto_УслугиМатериалы">
+        <PropertyRef Name="id_material" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Auto_Роль_Auto_Сотрудники">
+    <End Role="Auto_Сотрудники" Type="Self.Auto_Сотрудники" Multiplicity="0..1" />
+    <End Role="Auto_Роль" Type="Self.Auto_Роль" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Auto_Сотрудники">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Auto_Роль">
+        <PropertyRef Name="id_worker" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Auto_УслугиМатериалы_Auto_Услуги">
+    <End Role="Auto_Услуги" Type="Self.Auto_Услуги" Multiplicity="0..1" />
+    <End Role="Auto_УслугиМатериалы" Type="Self.Auto_УслугиМатериалы" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Auto_Услуги">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Auto_УслугиМатериалы">
+        <PropertyRef Name="id_uslugi" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="user279_dbEntities1" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Auto_ДолжностьСотрудника" EntityType="Self.Auto_ДолжностьСотрудника" />
+    <EntitySet Name="Auto_Заказ" EntityType="Self.Auto_Заказ" />
+    <EntitySet Name="Auto_Клиент" EntityType="Self.Auto_Клиент" />
+    <EntitySet Name="Auto_Материал" EntityType="Self.Auto_Материал" />
+    <EntitySet Name="Auto_Машина" EntityType="Self.Auto_Машина" />
+    <EntitySet Name="Auto_Роль" EntityType="Self.Auto_Роль" />
+    <EntitySet Name="Auto_Сотрудники" EntityType="Self.Auto_Сотрудники" />
+    <EntitySet Name="Auto_СтатусЗаказа" EntityType="Self.Auto_СтатусЗаказа" />
+    <EntitySet Name="Auto_Услуги" EntityType="Self.Auto_Услуги" />
+    <EntitySet Name="Auto_УслугиМатериалы" EntityType="Self.Auto_УслугиМатериалы" />
+    <AssociationSet Name="FK_Auto_Сотрудники_Auto_ДолжностьСотрудника" Association="Self.FK_Auto_Сотрудники_Auto_ДолжностьСотрудника">
+      <End Role="Auto_ДолжностьСотрудника" EntitySet="Auto_ДолжностьСотрудника" />
+      <End Role="Auto_Сотрудники" EntitySet="Auto_Сотрудники" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Auto_Заказ_Auto_Машина" Association="Self.FK_Auto_Заказ_Auto_Машина">
+      <End Role="Auto_Машина" EntitySet="Auto_Машина" />
+      <End Role="Auto_Заказ" EntitySet="Auto_Заказ" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Auto_Заказ_Auto_Сотрудники" Association="Self.FK_Auto_Заказ_Auto_Сотрудники">
+      <End Role="Auto_Сотрудники" EntitySet="Auto_Сотрудники" />
+      <End Role="Auto_Заказ" EntitySet="Auto_Заказ" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Auto_Заказ_Auto_СтатусЗаказа" Association="Self.FK_Auto_Заказ_Auto_СтатусЗаказа">
+      <End Role="Auto_СтатусЗаказа" EntitySet="Auto_СтатусЗаказа" />
+      <End Role="Auto_Заказ" EntitySet="Auto_Заказ" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Auto_Заказ_Auto_Услуги" Association="Self.FK_Auto_Заказ_Auto_Услуги">
+      <End Role="Auto_Услуги" EntitySet="Auto_Услуги" />
+      <End Role="Auto_Заказ" EntitySet="Auto_Заказ" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Auto_Клиент_Auto_Роль" Association="Self.FK_Auto_Клиент_Auto_Роль">
+      <End Role="Auto_Роль" EntitySet="Auto_Роль" />
+      <End Role="Auto_Клиент" EntitySet="Auto_Клиент" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Auto_Машина_Auto_Клиент" Association="Self.FK_Auto_Машина_Auto_Клиент">
+      <End Role="Auto_Клиент" EntitySet="Auto_Клиент" />
+      <End Role="Auto_Машина" EntitySet="Auto_Машина" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Auto_УслугиМатериалы_Auto_Материал" Association="Self.FK_Auto_УслугиМатериалы_Auto_Материал">
+      <End Role="Auto_Материал" EntitySet="Auto_Материал" />
+      <End Role="Auto_УслугиМатериалы" EntitySet="Auto_УслугиМатериалы" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Auto_Роль_Auto_Сотрудники" Association="Self.FK_Auto_Роль_Auto_Сотрудники">
+      <End Role="Auto_Сотрудники" EntitySet="Auto_Сотрудники" />
+      <End Role="Auto_Роль" EntitySet="Auto_Роль" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Auto_УслугиМатериалы_Auto_Услуги" Association="Self.FK_Auto_УслугиМатериалы_Auto_Услуги">
+      <End Role="Auto_Услуги" EntitySet="Auto_Услуги" />
+      <End Role="Auto_УслугиМатериалы" EntitySet="Auto_УслугиМатериалы" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

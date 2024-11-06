@@ -1,0 +1,113 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Хранилище user279_dbModelContainer" CdmEntityContainer="user279_dbEntities1">
+    <EntitySetMapping Name="Auto_ДолжностьСотрудника">
+      <EntityTypeMapping TypeName="user279_dbModel.Auto_ДолжностьСотрудника">
+        <MappingFragment StoreEntitySet="Auto_ДолжностьСотрудника">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Auto_Заказ">
+      <EntityTypeMapping TypeName="user279_dbModel.Auto_Заказ">
+        <MappingFragment StoreEntitySet="Auto_Заказ">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="id_uslugi" ColumnName="id_uslugi" />
+          <ScalarProperty Name="date_order" ColumnName="date_order" />
+          <ScalarProperty Name="id_status" ColumnName="id_status" />
+          <ScalarProperty Name="comment" ColumnName="comment" />
+          <ScalarProperty Name="id_worker" ColumnName="id_worker" />
+          <ScalarProperty Name="id_car" ColumnName="id_car" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Auto_Клиент">
+      <EntityTypeMapping TypeName="user279_dbModel.Auto_Клиент">
+        <MappingFragment StoreEntitySet="Auto_Клиент">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="surname" ColumnName="surname" />
+          <ScalarProperty Name="number" ColumnName="number" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="login" ColumnName="login" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="id_role" ColumnName="id_role" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Auto_Материал">
+      <EntityTypeMapping TypeName="user279_dbModel.Auto_Материал">
+        <MappingFragment StoreEntitySet="Auto_Материал">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="kolvo_sklad" ColumnName="kolvo_sklad" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Auto_Машина">
+      <EntityTypeMapping TypeName="user279_dbModel.Auto_Машина">
+        <MappingFragment StoreEntitySet="Auto_Машина">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="id_client" ColumnName="id_client" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="model" ColumnName="model" />
+          <ScalarProperty Name="date_of_issue" ColumnName="date_of_issue" />
+          <ScalarProperty Name="VIN" ColumnName="VIN" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Auto_Роль">
+      <EntityTypeMapping TypeName="user279_dbModel.Auto_Роль">
+        <MappingFragment StoreEntitySet="Auto_Роль">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="id_worker" ColumnName="id_worker" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Auto_Сотрудники">
+      <EntityTypeMapping TypeName="user279_dbModel.Auto_Сотрудники">
+        <MappingFragment StoreEntitySet="Auto_Сотрудники">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="surname" ColumnName="surname" />
+          <ScalarProperty Name="id_dlzhnst" ColumnName="id_dlzhnst" />
+          <ScalarProperty Name="number" ColumnName="number" />
+          <ScalarProperty Name="login" ColumnName="login" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="email" ColumnName="email" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Auto_СтатусЗаказа">
+      <EntityTypeMapping TypeName="user279_dbModel.Auto_СтатусЗаказа">
+        <MappingFragment StoreEntitySet="Auto_СтатусЗаказа">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="status" ColumnName="status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Auto_Услуги">
+      <EntityTypeMapping TypeName="user279_dbModel.Auto_Услуги">
+        <MappingFragment StoreEntitySet="Auto_Услуги">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="price" ColumnName="price" />
+          <ScalarProperty Name="execution_time" ColumnName="execution_time" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Auto_УслугиМатериалы">
+      <EntityTypeMapping TypeName="user279_dbModel.Auto_УслугиМатериалы">
+        <MappingFragment StoreEntitySet="Auto_УслугиМатериалы">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="id_material" ColumnName="id_material" />
+          <ScalarProperty Name="id_uslugi" ColumnName="id_uslugi" />
+          <ScalarProperty Name="kolvo_zakaz" ColumnName="kolvo_zakaz" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

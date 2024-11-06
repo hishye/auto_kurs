@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="0dd9221e684a4a47a908713a9501ce6c" Name="Diagram1">
+        <EntityTypeShape EntityType="user279_dbModel.Auto_ДолжностьСотрудника" Width="1.5" PointX="1.5" PointY="24.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="user279_dbModel.Auto_Заказ" Width="1.5" PointX="3" PointY="4.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="user279_dbModel.Auto_Клиент" Width="1.5" PointX="1.5" PointY="12" IsExpanded="true" />
+        <EntityTypeShape EntityType="user279_dbModel.Auto_Материал" Width="1.5" PointX="3.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="user279_dbModel.Auto_Машина" Width="1.5" PointX="0.75" PointY="8.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="user279_dbModel.Auto_Роль" Width="1.5" PointX="1.5" PointY="16.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="user279_dbModel.Auto_Сотрудники" Width="1.5" PointX="1.5" PointY="19.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="user279_dbModel.Auto_СтатусЗаказа" Width="1.5" PointX="0.75" PointY="1.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="user279_dbModel.Auto_Услуги" Width="1.5" PointX="0.75" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="user279_dbModel.Auto_УслугиМатериалы" Width="1.5" PointX="6" PointY="4.5" IsExpanded="true" />
+        <AssociationConnector Association="user279_dbModel.FK_Auto_Сотрудники_Auto_ДолжностьСотрудника" ManuallyRouted="false" />
+        <AssociationConnector Association="user279_dbModel.FK_Auto_Заказ_Auto_Машина" ManuallyRouted="false" />
+        <AssociationConnector Association="user279_dbModel.FK_Auto_Заказ_Auto_Сотрудники" ManuallyRouted="false" />
+        <AssociationConnector Association="user279_dbModel.FK_Auto_Заказ_Auto_СтатусЗаказа" ManuallyRouted="false" />
+        <AssociationConnector Association="user279_dbModel.FK_Auto_Заказ_Auto_Услуги" ManuallyRouted="false" />
+        <AssociationConnector Association="user279_dbModel.FK_Auto_Клиент_Auto_Роль" ManuallyRouted="false" />
+        <AssociationConnector Association="user279_dbModel.FK_Auto_Машина_Auto_Клиент" ManuallyRouted="false" />
+        <AssociationConnector Association="user279_dbModel.FK_Auto_УслугиМатериалы_Auto_Материал" ManuallyRouted="false" />
+        <AssociationConnector Association="user279_dbModel.FK_Auto_Роль_Auto_Сотрудники" ManuallyRouted="false" />
+        <AssociationConnector Association="user279_dbModel.FK_Auto_УслугиМатериалы_Auto_Услуги" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
